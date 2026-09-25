@@ -1,4 +1,5 @@
 import { StyleSheet, View } from "react-native";
+import { SafeAreaView } from "react-native-safe-area-context";
 
 /**
  * 
@@ -10,7 +11,9 @@ export default function BackgroundView({ children, customStyle }) {
         <View
             style={[styles.container, customStyle]}
         >
-            {children}
+            <SafeAreaView>
+                {children}
+            </SafeAreaView>
         </View>
     )
 }
