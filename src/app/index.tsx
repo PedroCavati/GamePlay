@@ -5,9 +5,7 @@ import LoginBackground from '../components/login/LoginBackground';
 export default function Login() {
   return (
     <BackgroundView>
-      <LoginBackground>
-        
-      </LoginBackground>
+      <LoginBackground/>
     </BackgroundView>
   );
 
