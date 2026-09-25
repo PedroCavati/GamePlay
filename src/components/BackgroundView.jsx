@@ -1,3 +1,4 @@
+import { Colors } from "@/themes";
 import { LinearGradient } from "expo-linear-gradient";
 import { StyleSheet, View } from "react-native";
 
@@ -9,9 +10,9 @@ import { StyleSheet, View } from "react-native";
 export default function BackgroundView({ children, customStyle }) {
     return (
         <View
-            style={[styles.container, customStyle]}
+            style={styles.container}
         >
-            <LinearGradient style={styles.gradient} colors={["#0E1647", "#0A1033"]}>
+            <LinearGradient style={[styles.gradient, customStyle]} colors={Colors.backgroundGradient}>
                 {children}
             </LinearGradient>
         </View>
@@ -21,7 +22,6 @@ export default function BackgroundView({ children, customStyle }) {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: '#0E1647',
     },
     gradient: {
         flex: 1,
