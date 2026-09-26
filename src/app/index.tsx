@@ -1,12 +1,12 @@
-import { Colors, Fonts } from '@/themes';
+import { BackgroundView } from '@/components';
+import { LoginBackgroundBanner } from '@/components/login';
+import { colors, typography } from '@/themes';
 import { StyleSheet, Text, View } from 'react-native';
-import BackgroundView from '../components/BackgroundView';
-import LoginBackground from '../components/login/LoginBackground';
 
 export default function Login() {
   return (
     <BackgroundView>
-      <LoginBackground />
+      <LoginBackgroundBanner/>
       <View style={ styles.bottomContainer }>
         <Text style={ styles.titleLabel }>
           Conecte-se e organize suas jogatinas
@@ -29,14 +29,14 @@ const styles = StyleSheet.create({
   },
 
   titleLabel: {
-    ...Fonts.title,
-    color: Colors.white,
+    ...typography.banner,
+    color: colors.textWhite,
     textAlign: 'center',
   },
 
   subtitleLabel: {
-    ...Fonts.subtitle,
-    color: Colors.white,
+    ...typography.bannerSubtitle,
+    color: colors.textWhite,
     textAlign: 'center',
     width: 247,
     marginTop: 16,

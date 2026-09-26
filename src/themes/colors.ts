@@ -1,8 +1,6 @@
-export const Colors = {
-    beyondNavy: "#0E1647",
-    coolDarkBlue: "#0A1033",
-
-    white: "#FFFFFF",
-
+export const colors = {
+    splashBlue: "#0E1647",
+    backgroundBlue: "#0A1033",
+    textWhite: "#FFFFFF",
     backgroundGradient: ["#0E1647", "#0A1033"],
 }

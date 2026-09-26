@@ -5,7 +5,7 @@ import { SafeAreaView } from "react-native-safe-area-context";
  * 
  * @returns 
  */
-export default function LoginBackground() {
+export default function LoginBackgroundBanner() {
     return (
         <SafeAreaView>
             <View>
