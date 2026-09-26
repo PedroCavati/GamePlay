@@ -6,8 +6,9 @@ import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
  * @param {() => void} props.onPress
  * @param {string} [props.title]
  * @param {React.ReactNode} [props.icon]
+ * @param {import('react-native').StyleProp<import('react-native').ViewStyle>} [props.customStyle]
  */
-export default function ActionButton({ onPress, icon, title }) {
+export default function ActionButton({ onPress, icon, title, customStyle }) {
     if (!title && !icon) return null;
 
     const isIconOnly = Boolean(icon && !title);
@@ -16,7 +17,7 @@ export default function ActionButton({ onPress, icon, title }) {
 
     return (
         <TouchableOpacity
-            style={[styles.button, isIconOnly && styles.iconOnlyButton]}
+            style={[styles.button, isIconOnly && styles.iconOnlyButton, customStyle]}
             onPress={onPress}
         >
 

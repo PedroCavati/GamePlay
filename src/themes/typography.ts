@@ -18,5 +18,23 @@ export const typography = {
     fontFamily: fonts.inter,
     fontSize: 15,
     fontWeight: '500',
-  }
+  } satisfies TextStyle,
+
+  header: {
+    fontFamily: fonts.rajdhani,
+    fontSize: 24,
+    fontWeight: '500',
+  } satisfies TextStyle,
+
+  headerName: {
+    fontFamily: fonts.rajdhani,
+    fontSize: 24,
+    fontWeight: '700',
+  } satisfies TextStyle,
+
+  headerSubtitle: {
+    fontFamily: fonts.inter,
+    fontSize: 13,
+    fontWeight: '400',
+  } satisfies TextStyle,
 }

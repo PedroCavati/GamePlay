@@ -4,7 +4,7 @@ import { StyleSheet, View } from "react-native";
 
 /**
  * @param {Object} props
- * @param {React.ReactNode} props.children
+ * @param {React.ReactNode} [props.children]
  * @param {import('react-native').StyleProp<import('react-native').ViewStyle>} [props.customStyle]
  */
 export default function BackgroundView({ children, customStyle }) {

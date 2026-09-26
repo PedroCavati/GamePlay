@@ -1,13 +1,15 @@
 import { ActionButton, BackgroundView } from '@/components';
 import { colors, typography } from '@/themes';
 import { FontAwesome6 } from '@expo/vector-icons';
+import { useRouter } from 'expo-router';
 import { Image, ImageBackground, StyleSheet, Text, View } from 'react-native';
 import { SafeAreaView } from "react-native-safe-area-context";
 
 export default function Login() {
+  const router = useRouter();
 
   function handlePress() {
-
+    router.replace('/home');
   }
 
   return (
@@ -21,29 +23,31 @@ export default function Login() {
           <Image
             style={styles.foregroundImage}
             source={require('../../assets/images/login-character.png')}
-          >
-          </Image>
+          />
         </ImageBackground>
       </View>
 
-      <View style={styles.middleContainer}>
+      <SafeAreaView>
 
-        <Text style={styles.titleLabel}>
-          Conecte-se e organize suas jogatinas
-        </Text>
+        <View style={styles.middleContainer}>
 
-        <Text style={styles.subtitleLabel}>
-          Crie grupos para jogar seus games favoritos com seus amigos
-        </Text>
+          <Text style={styles.titleLabel}>
+            Conecte-se e organize suas jogatinas
+          </Text>
 
-      </View>
+          <Text style={styles.subtitleLabel}>
+            Crie grupos para jogar seus games favoritos com seus amigos
+          </Text>
 
-      <SafeAreaView style={styles.bottomContainer}>
-        <ActionButton
-          onPress={handlePress}
-          icon={<FontAwesome6 name="discord" size={24} color="#FFF" />}
-          title='Entrar com discord'
-        />
+        </View>
+
+        <View style={styles.bottomContainer}>
+          <ActionButton
+            onPress={handlePress}
+            icon={<FontAwesome6 name="discord" size={24} color="#FFF" />}
+            title='Entrar com discord'
+          />
+        </View>
       </SafeAreaView>
 
     </BackgroundView>
@@ -70,7 +74,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     width: '100%',
-    marginTop: -40,
+    marginTop: -90,
   },
 
   titleLabel: {
@@ -94,5 +98,5 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     marginTop: 48,
     width: '100%'
-  }
+  },
 });
