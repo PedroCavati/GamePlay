@@ -13,4 +13,10 @@ export const typography = {
     fontSize: 15,
     fontWeight: '400',
   } satisfies TextStyle,
+
+  buttonTitle: {
+    fontFamily: fonts.inter,
+    fontSize: 15,
+    fontWeight: '500',
+  }
 }

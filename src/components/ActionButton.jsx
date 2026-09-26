@@ -1,5 +1,5 @@
-import { colors } from "@/themes";
-import { StyleSheet, TouchableOpacity, View } from "react-native";
+import { colors, typography } from "@/themes";
+import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
 
 /**
  * @param {Object} props
@@ -19,11 +19,25 @@ export default function ActionButton({ onPress, icon, title }) {
             style={[styles.button, isIconOnly && styles.iconOnlyButton]}
             onPress={onPress}
         >
-            {isIconOnly && (
+
+            {icon && (
                 <View style={isIconOnly ? styles.centeredIconContainer : styles.iconContainer}>
                     {icon}
                 </View>
             )}
+
+            {hasBoth && (
+                <View style={styles.divider} />
+            )}
+
+            {title && (
+                <View style={[styles.textContainer]}>
+                    <Text style={styles.text}>
+                        {title}
+                    </Text>
+                </View>
+            )}
+
         </TouchableOpacity>
     )
 
@@ -36,7 +50,9 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         borderRadius: 8,
         height: 56,
-        backgroundColor: colors.buttonRed
+        backgroundColor: colors.buttonRed,
+        maxWidth: '73%',
+        maxWidth: 274
     },
     iconOnlyButton: {
         width: 48,
@@ -53,5 +69,19 @@ const styles = StyleSheet.create({
         flex: 1,
         justifyContent: 'center',
         alignItems: 'center',
-    }
+    },
+    divider: {
+        width: 1,
+        height: '100%',
+        backgroundColor: colors.dividerRed,
+    },
+    textContainer: {
+        flex: 1,
+        justifyContent: 'center',
+        alignItems: 'center',
+    },
+    text: {
+        ...typography.buttonTitle,
+        color: colors.textWhite
+    },
 })
