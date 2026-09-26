@@ -1,2 +1,3 @@
 export { CATEGORIES } from './categories';
-export { MATCHES } from './matches';
+export { SERVERS } from './servers';
+

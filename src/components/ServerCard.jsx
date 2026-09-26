@@ -3,14 +3,14 @@ import { AntDesign, Ionicons } from "@expo/vector-icons";
 import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import { Avatar } from ".";
 
-export default function MatchCard({ title, source, date, category, role, onPress, customStyle }) {
+export default function ServerCard({ title, source, date, category, role, onPress, customStyle }) {
     return (
         <TouchableOpacity
-            style={[styles.matchContainer, customStyle]}
+            style={[styles.serverContainer, customStyle]}
             onPress={onPress}
             activeOpacity={0.7}
         >
-            <Avatar source={source} customStyle={styles.matchAvatar} />
+            <Avatar source={source} customStyle={styles.serverAvatar} />
 
             <View style={styles.contentWrapper}>
                 <View style={styles.infoRow}>
@@ -40,14 +40,14 @@ export default function MatchCard({ title, source, date, category, role, onPress
 }
 
 const styles = StyleSheet.create({
-    matchContainer: {
+    serverContainer: {
         flexDirection: 'row',
         alignItems: 'center',
         width: '100%',
         marginBottom: 16,
     },
 
-    matchAvatar: {
+    serverAvatar: {
         width: 64,
         height: 68,
     },
@@ -70,7 +70,7 @@ const styles = StyleSheet.create({
     },
 
     titleText: {
-        ...typography.matchTitle,
+        ...typography.serverTitle,
         color: colors.textWhite,
     },
 
@@ -81,7 +81,7 @@ const styles = StyleSheet.create({
     },
 
     dateText: {
-        ...typography.matchDate,
+        ...typography.serverDate,
         color: colors.textWhite,
         marginLeft: 6,
     },

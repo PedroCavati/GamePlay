@@ -1,5 +1,5 @@
-import { ActionButton, Avatar, BackgroundView, CategoryButton, MatchCard } from "@/components";
-import { CATEGORIES, MATCHES } from "@/data";
+import { ActionButton, Avatar, BackgroundView, CategoryButton, ServerCard } from "@/components";
+import { CATEGORIES, SERVERS } from "@/data";
 import { colors, typography } from "@/themes";
 import { AntDesign } from "@expo/vector-icons";
 import { useState } from "react";
@@ -61,24 +61,24 @@ export default function Home() {
           </ScrollView>
         </View>
 
-        <View style={styles.matchesHeader}>
-          <Text style={styles.matchesTitle}>Partidas Agendadas</Text>
-          <Text style={styles.matchesTotal}>{`Total ${MATCHES.length}`}</Text>
+        <View style={styles.serversHeader}>
+          <Text style={styles.serversTitle}>Partidas Agendadas</Text>
+          <Text style={styles.serversTotal}>{`Total ${SERVERS.length}`}</Text>
         </View>
 
-        <View style={styles.matchesContainer}>
+        <View style={styles.serversContainer}>
           <ScrollView
             showsVerticalScrollIndicator={false}
-            contentContainerStyle={styles.matchesContent}
+            contentContainerStyle={styles.serversContent}
           >
-            {MATCHES.map((match) => (
-              <MatchCard
-                key={match.id}
-                title={match.title}
-                source={match.source}
-                date={match.date}
-                category={match.category}
-                role={match.role}
+            {SERVERS.map((server) => (
+              <ServerCard
+                key={server.id}
+                title={server.title}
+                source={server.source}
+                date={server.date}
+                category={server.category}
+                role={server.role}
               />
             ))}
           </ScrollView>
@@ -142,7 +142,7 @@ const styles = StyleSheet.create({
     paddingRight: 24,
   },
 
-  matchesHeader: {
+  serversHeader: {
     flexDirection: 'row',
     width: '87%',
     alignItems: 'center',
@@ -150,23 +150,23 @@ const styles = StyleSheet.create({
     marginBottom: 16
   },
 
-  matchesTitle: {
-    ...typography.matchTitle,
+  serversTitle: {
+    ...typography.serverTitle,
     color: colors.textWhite,
   },
 
-  matchesTotal: {
+  serversTotal: {
     ...typography.headerSubtitle,
     color: colors.textGray,
   },
 
-  matchesContainer: {
+  serversContainer: {
     flex: 1,
     width: '100%',
     paddingLeft: '6.5%',
   },
 
-  matchesContent: {
+  serversContent: {
     paddingBottom: 24
   },
 });

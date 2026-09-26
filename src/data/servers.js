@@ -1,4 +1,4 @@
-export const MATCHES = Object.freeze([
+export const SERVERS = Object.freeze([
   {
     id: 'lol',
     title: 'League of Legends',
