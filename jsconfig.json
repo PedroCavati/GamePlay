@@ -1,13 +1,10 @@
 {
   "compilerOptions": {
-    "baseUrl": ".",
+    "moduleResolution": "bundler",
     "paths": {
       "@/*": ["./src/*"],
       "@/assets/*": ["./assets/*"]
     }
   },
-  "exclude": [
-    "node_modules",
-    ".expo"
-  ]
+  "exclude": ["node_modules", ".expo"]
 }
