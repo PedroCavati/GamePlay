@@ -3,16 +3,15 @@ import { LinearGradient } from "expo-linear-gradient";
 import { StyleSheet, View } from "react-native";
 
 /**
- * 
- * @param {StyleProp<ViewStyle>} customStyle - use a custom style configuration
- * @returns 
+ * @param {Object} props
+ * @param {React.ReactNode} props.children
  */
-export default function BackgroundView({ children, customStyle }) {
+export default function BackgroundView({ children }) {
     return (
         <View
             style={styles.container}
         >
-            <LinearGradient style={[styles.gradient, customStyle]} colors={colors.backgroundGradient}>
+            <LinearGradient style={[styles.gradient]} colors={colors.backgroundGradient}>
                 {children}
             </LinearGradient>
         </View>
