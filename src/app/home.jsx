@@ -1,5 +1,5 @@
-import { ActionButton, Avatar, BackgroundView, CategoryButton } from "@/components";
-import { CATEGORIES } from "@/data";
+import { ActionButton, Avatar, BackgroundView, CategoryButton, MatchCard } from "@/components";
+import { CATEGORIES, MATCHES } from "@/data";
 import { colors, typography } from "@/themes";
 import { AntDesign } from "@expo/vector-icons";
 import { useState } from "react";
@@ -63,7 +63,25 @@ export default function Home() {
 
         <View style={styles.matchesHeader}>
           <Text style={styles.matchesTitle}>Partidas Agendadas</Text>
-          <Text style={styles.matchesTotal}>Total 6</Text>
+          <Text style={styles.matchesTotal}>{`Total ${MATCHES.length}`}</Text>
+        </View>
+
+        <View style={styles.matchesContainer}>
+          <ScrollView
+            showsVerticalScrollIndicator={false}
+            contentContainerStyle={styles.matchesContent}
+          >
+            {MATCHES.map((match) => (
+              <MatchCard
+                key={match.id}
+                title={match.title}
+                source={match.source}
+                date={match.date}
+                category={match.category}
+                role={match.role}
+              />
+            ))}
+          </ScrollView>
         </View>
       </SafeAreaView>
     </BackgroundView>
@@ -83,13 +101,11 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     marginTop: 16,
     marginBottom: 28,
-    backgroundColor: colors.debugOne,
   },
 
   userInfo: {
     flexDirection: 'row',
     alignItems: 'center',
-    backgroundColor: colors.debugThree,
   },
 
   textContainer: {
@@ -142,5 +158,15 @@ const styles = StyleSheet.create({
   matchesTotal: {
     ...typography.headerSubtitle,
     color: colors.textGray,
+  },
+
+  matchesContainer: {
+    flex: 1,
+    width: '100%',
+    paddingLeft: '6.5%',
+  },
+
+  matchesContent: {
+    paddingBottom: 24
   },
 });

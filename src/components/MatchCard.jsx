@@ -1,29 +1,41 @@
 import { colors, typography } from "@/themes";
-import { AntDesign } from "@expo/vector-icons";
-import { StyleSheet, Text, View } from "react-native";
+import { AntDesign, Ionicons } from "@expo/vector-icons";
+import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import { Avatar } from ".";
 
-export default function MatchCard({ title, source, date, category, role, customStyle }) {
-    return(
-        <View style={[styles.matchContainer, customStyle]}>
-            <View style={styles.matchLeftContainer}>
-                <Avatar source={source} customStyle={styles.matchAvatar}/>
+export default function MatchCard({ title, source, date, category, role, onPress, customStyle }) {
+    return (
+        <TouchableOpacity
+            style={[styles.matchContainer, customStyle]}
+            onPress={onPress}
+            activeOpacity={0.7}
+        >
+            <Avatar source={source} customStyle={styles.matchAvatar} />
 
-                <View style={styles.leftTextContainer}>
-                    <Text style={styles.titleText}>{title}</Text>
+            <View style={styles.contentWrapper}>
+                <View style={styles.infoRow}>
+                    <View style={styles.middleTextContainer}>
+                        <Text style={styles.titleText} numberOfLines={1}>{title}</Text>
 
-                    <View style={styles.dateContainer}>
-                        <AntDesign name="calendar" size={16} color={colors.iconRed}/>
-                        <Text style={styles.dateText}>{date}</Text>
+                        <View style={styles.dateContainer}>
+                            <AntDesign name="calendar" size={16} color={colors.iconRed} />
+                            <Text style={styles.dateText}>{date}</Text>
+                        </View>
+                    </View>
+
+                    <View style={styles.rightTextContainer}>
+                        <Text style={styles.categoryText}>{category}</Text>
+
+                        <View style={styles.roleContainer}>
+                            <Ionicons name="person-sharp" size={16} color={colors.iconRed} />
+                            <Text style={styles.roleText}>{role}</Text>
+                        </View>
                     </View>
                 </View>
 
-                <View>
-                    <Text style={styles.categoryText}>{category}</Text>
-                    <Text style={styles.roleText}>{role}</Text>
-                </View>
+                <View style={styles.divider} />
             </View>
-        </View>      
+        </TouchableOpacity>
     )
 }
 
@@ -31,14 +43,8 @@ const styles = StyleSheet.create({
     matchContainer: {
         flexDirection: 'row',
         alignItems: 'center',
-        justifyContent: 'space-between',
-        backgroundColor: colors.debugOne,
-    },
-
-    matchLeftContainer: {
-        flexDirection: 'row',
-        alignItems: 'center',
-        backgroundColor: colors.debubTwo,
+        width: '100%',
+        marginBottom: 16,
     },
 
     matchAvatar: {
@@ -46,10 +52,23 @@ const styles = StyleSheet.create({
         height: 68,
     },
 
-    leftTextContainer: {
+    contentWrapper: {
+        flex: 1,
         marginLeft: 20,
     },
-    
+
+    infoRow: {
+        flexDirection: 'row',
+        alignItems: 'center',
+        justifyContent: 'space-between',
+        paddingRight: 24,
+    },
+
+    middleTextContainer: {
+        flex: 1,
+        marginRight: 12,
+    },
+
     titleText: {
         ...typography.matchTitle,
         color: colors.textWhite,
@@ -58,12 +77,17 @@ const styles = StyleSheet.create({
     dateContainer: {
         flexDirection: 'row',
         alignItems: 'center',
-        backgroundColor: colors.debugThree
+        marginTop: 8,
     },
 
     dateText: {
         ...typography.matchDate,
         color: colors.textWhite,
+        marginLeft: 6,
+    },
+
+    rightTextContainer: {
+        alignItems: 'flex-end'
     },
 
     categoryText: {
@@ -71,8 +95,21 @@ const styles = StyleSheet.create({
         color: colors.textGray,
     },
 
+    roleContainer: {
+        flexDirection: 'row',
+        alignItems: 'center',
+        marginTop: 8,
+    },
+
     roleText: {
         ...typography.headerSubtitle,
         color: colors.textRed,
-    }
+        marginLeft: 6,
+    },
+
+    divider: {
+        height: 1,
+        backgroundColor: colors.dividerBlue,
+        marginTop: 12,
+    },
 })
