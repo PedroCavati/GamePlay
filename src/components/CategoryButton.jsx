@@ -3,59 +3,78 @@ import { LinearGradient } from "expo-linear-gradient";
 import { Image, StyleSheet, Text, TouchableOpacity, View } from "react-native";
 
 /**
- * @param {Object} props
- * @param {import("react-native").ImageSourcePropType} props.source
+ * @param {Object} props - Component properties.
+ * @param {import("react-native").ImageSourcePropType} props.source 
  * @param {string} props.title
- * @param {() => void} props.onPress
+ * @param {() => void} [props.onPress]
+ * @param {boolean} [props.isSelected=false]
  */
-export default function CategoryButton({ source, title, onPress }) {
+export default function CategoryButton({ source, title, onPress, isSelected = false }) {
     return (
-        <LinearGradient
-            colors={colors.categoryButtonBorderGragient}
-            start={{ x: 0, y: 0 }}
-            end={{ x: 1, y: 1 }}
-            style={styles.gradientBorder}
+        <TouchableOpacity
+            onPress={onPress}
+            activeOpacity={0.8}
+            style={[
+                styles.touchableWrapper,
+                !isSelected && styles.unselectedOpacity,
+            ]}
         >
-
-            <TouchableOpacity
-                style={styles.cardContent}
-                onPress={onPress}
+            <LinearGradient
+                colors={colors.categoryButtonBorderGradient}
+                start={{ x: 0, y: 0 }}
+                end={{ x: 1, y: 1 }}
+                style={styles.gradientBorder}
             >
+                <View style={styles.cardContent}>
+                    <View style={styles.iconWrapper}>
+                        <Image source={source} style={styles.icon} resizeMode="contain" />
+                    </View>
 
-                <View style={styles.iconWrapper}>
-                    <Image source={source} />
+                    <Text style={styles.title}>{title}</Text>
                 </View>
-
-                <Text style={styles.title}>{title}</Text>
-
-            </TouchableOpacity>
-
-        </LinearGradient>
+            </LinearGradient>
+        </TouchableOpacity>
     )
 }
 
 const styles = StyleSheet.create({
+    touchableWrapper: {
+        borderRadius: 8,
+    },
+
+    unselectedOpacity: {
+        opacity: 0.5,
+    },
+
     gradientBorder: {
         padding: 1.5,
         borderRadius: 8,
         width: 104,
         height: 120,
     },
+
     cardContent: {
         flex: 1,
         backgroundColor: colors.categoryButtonBlue,
-        borderRadius: 8,
-        justifyContent: 'center',
-        alignItems: 'center',
+        borderRadius: 7,
+        justifyContent: "center",
+        alignItems: "center",
     },
+
     iconWrapper: {
         marginBottom: 20,
-        alignItems: 'center',
-        justifyContent: 'center',
+        alignItems: "center",
+        justifyContent: "center",
     },
+
+    icon: {
+        width: 48,
+        height: 48,
+    },
+
     title: {
         ...typography.categoryTitle,
         color: colors.textWhite,
-        textAlign: 'center',
+        textAlign: "center",
     },
 })

@@ -18,6 +18,7 @@ export default function Login() {
       <View>
         <ImageBackground
           style={styles.backgroundImage}
+          imageStyle={styles.backgroundImageStyle}
           source={require('../../assets/images/login-background-one.png')}
         >
           <Image
@@ -27,10 +28,8 @@ export default function Login() {
         </ImageBackground>
       </View>
 
-      <SafeAreaView>
-
+      <SafeAreaView style={styles.safeArea}>
         <View style={styles.middleContainer}>
-
           <Text style={styles.titleLabel}>
             Conecte-se e organize suas jogatinas
           </Text>
@@ -38,30 +37,34 @@ export default function Login() {
           <Text style={styles.subtitleLabel}>
             Crie grupos para jogar seus games favoritos com seus amigos
           </Text>
-
         </View>
 
         <View style={styles.bottomContainer}>
           <ActionButton
             onPress={handlePress}
             icon={<FontAwesome6 name="discord" size={24} color="#FFF" />}
-            title='Entrar com discord'
+            title="Entrar com discord"
           />
         </View>
       </SafeAreaView>
-
     </BackgroundView>
   );
 
 }
 
 const styles = StyleSheet.create({
+  safeArea: {
+    flex: 1,
+  },
 
   backgroundImage: {
     width: '100%',
     height: 360,
     justifyContent: 'flex-end',
-    resizeMode: 'cover'
+  },
+
+  backgroundImageStyle: {
+    resizeMode: 'cover',
   },
 
   foregroundImage: {
@@ -97,6 +100,5 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     marginTop: 48,
-    width: '100%'
   },
 });
