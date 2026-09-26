@@ -32,6 +32,18 @@ export const typography = {
     fontWeight: '700',
   } satisfies TextStyle,
 
+  categoryTitle: {
+    fontFamily: fonts.rajdhani,
+    fontSize: 15,
+    fontWeight: '700',
+  } satisfies TextStyle,
+
+  matchTitle: {
+    fontFamily: fonts.rajdhani,
+    fontSize: 18,
+    fontWeight: '700',
+  } satisfies TextStyle,
+
   headerSubtitle: {
     fontFamily: fonts.inter,
     fontSize: 13,

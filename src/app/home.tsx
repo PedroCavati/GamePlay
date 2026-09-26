@@ -1,7 +1,7 @@
-import { ActionButton, BackgroundView, ProfileImage } from "@/components";
+import { ActionButton, BackgroundView, CategoryButton, ProfileImage } from "@/components";
 import { colors, typography } from "@/themes";
 import { AntDesign } from "@expo/vector-icons";
-import { StyleSheet, Text, View } from "react-native";
+import { ScrollView, StyleSheet, Text, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 
 export default function Home() {
@@ -10,10 +10,14 @@ export default function Home() {
 
     }
 
+    function handleSelection() {
+
+    }
+
     return (
         <BackgroundView>
 
-            <SafeAreaView style={{alignItems: 'center'}}>
+            <SafeAreaView style={{ alignItems: 'center' }}>
 
                 <View style={styles.topContainer}>
                     <ProfileImage source={require('../../assets/images/profile-pic-1.png')} />
@@ -33,6 +37,30 @@ export default function Home() {
                     />
                 </View>
 
+            </SafeAreaView>
+
+            <View style={styles.scrollContainer}>
+                <ScrollView horizontal style={styles.scrollView} contentContainerStyle={styles.scrollContentContainer}>
+                    <CategoryButton
+                        source={require("../../assets/images/ranked-icon.png")}
+                        title="Ranqueada"
+                        onPress={handleSelection} />
+                    <CategoryButton
+                        source={require("../../assets/images/ranked-icon.png")}
+                        title="Ranqueada"
+                        onPress={handleSelection} />
+                    <CategoryButton
+                        source={require("../../assets/images/ranked-icon.png")}
+                        title="Ranqueada"
+                        onPress={handleSelection} />
+                </ScrollView>
+            </View>
+            
+            <SafeAreaView style={{ alignItems: 'center' }}>
+                <View style={styles.matchesContainer}>
+                    <Text style={styles.matchesTitle}>Partidas Agendadas</Text>
+                    <Text style={styles.matchesTotal}>Total 6</Text>
+                </View>
             </SafeAreaView>
 
         </BackgroundView>
@@ -68,6 +96,41 @@ const styles = StyleSheet.create({
 
     scheduleButton: {
         position: 'absolute',
-    right: 0
+        right: 0
+    },
+
+    scrollContainer: {
+        alignItems: 'center',
+    },
+
+    scrollView: {
+        width: '87%',
+        flexGrow: 0,
+    },
+
+    scrollContentContainer: {
+        gap: 8,
+    },
+
+    matchesContainer: {
+        flexDirection: 'row',
+        width: '87%',
+        position: 'relative',
+        alignItems: 'center',
+        backgroundColor: colors.buttonRed
+    },
+
+    matchesTitle: {
+        position: 'absolute',
+        left: 0,
+        ...typography.matchTitle,
+        color: colors.textWhite
+    },
+
+    matchesTotal: {
+        position: 'absolute',
+        right: 0,
+        ...typography.headerSubtitle,
+        color: colors.textWhite
     }
 })
