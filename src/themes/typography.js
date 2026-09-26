@@ -33,6 +33,11 @@ export const typography = Object.freeze({
     fontSize: 18,
     lineHeight: 24,
   },
+  matchDate: {
+    fontFamily: fonts.interMedium,
+    fontSize: 13,
+    lineHeight: 18,
+  },
 
   categoryTitle: {
     fontFamily: fonts.rajdhaniBold,

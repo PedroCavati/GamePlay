@@ -1,4 +1,4 @@
-import { ActionButton, BackgroundView, CategoryButton, ProfileImage } from "@/components";
+import { ActionButton, Avatar, BackgroundView, CategoryButton } from "@/components";
 import { CATEGORIES } from "@/data";
 import { colors, typography } from "@/themes";
 import { AntDesign } from "@expo/vector-icons";
@@ -7,7 +7,9 @@ import { ScrollView, StyleSheet, Text, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 
 export default function Home() {
-  const [selectedIds, setSelectedIds] = useState([CATEGORIES[0].id]);
+  const [selectedIds, setSelectedIds] = useState(
+    CATEGORIES.map((category) => category.id)
+  );
 
   const toggleCategory = (id) => {
     setSelectedIds((prev) =>
@@ -23,41 +25,41 @@ export default function Home() {
     <BackgroundView>
       <SafeAreaView style={styles.safeArea}>
         <View style={styles.topContainer}>
-            <View style={styles.userInfo}>
-          <ProfileImage source={require('../../assets/images/profile-pic-1.png')} />
+          <View style={styles.userInfo}>
+            <Avatar source={require('../../assets/images/profile-pic-1.png')} />
 
-          <View style={styles.textContainer}>
-            <Text style={styles.headerText}>
-              Olá, <Text style={styles.headerNameText}>Tiago</Text>
-            </Text>
-            <Text style={styles.headerSubtitleText}>Hoje é dia de vitória</Text>
-          </View>
+            <View style={styles.textContainer}>
+              <Text style={styles.headerText}>
+                Olá, <Text style={styles.headerNameText}>Tiago</Text>
+              </Text>
+              <Text style={styles.headerSubtitleText}>Hoje é dia de vitória</Text>
+            </View>
           </View>
 
           <ActionButton
             onPress={handleSchedule}
-            icon={<AntDesign name="plus" size={24} color="#FFF" />}
+            icon={<AntDesign name="plus" size={24} color={colors.iconWhite} />}
             customStyle={styles.scheduleButton}
           />
         </View>
 
-      <View style={styles.categoriesContainer}>
-        <ScrollView
-          horizontal
-          showsHorizontalScrollIndicator={false}
-          contentContainerStyle={styles.categoriesContent}
-        >
-          {CATEGORIES.map((category) => (
-            <CategoryButton
-              key={category.id}
-              source={category.source}
-              title={category.title}
-              isSelected={selectedIds.includes(category.id)}
-              onPress={() => toggleCategory(category.id)}
-            />
-          ))}
-        </ScrollView>
-      </View>
+        <View style={styles.categoriesContainer}>
+          <ScrollView
+            horizontal
+            showsHorizontalScrollIndicator={false}
+            contentContainerStyle={styles.categoriesContent}
+          >
+            {CATEGORIES.map((category) => (
+              <CategoryButton
+                key={category.id}
+                source={category.source}
+                title={category.title}
+                isSelected={selectedIds.includes(category.id)}
+                onPress={() => toggleCategory(category.id)}
+              />
+            ))}
+          </ScrollView>
+        </View>
 
         <View style={styles.matchesHeader}>
           <Text style={styles.matchesTitle}>Partidas Agendadas</Text>
@@ -69,10 +71,10 @@ export default function Home() {
 }
 
 const styles = StyleSheet.create({
-safeArea: {
+  safeArea: {
     flex: 1,
     alignItems: 'center',
-},
+  },
 
   topContainer: {
     flexDirection: 'row',
@@ -81,11 +83,13 @@ safeArea: {
     justifyContent: 'space-between',
     marginTop: 16,
     marginBottom: 28,
+    backgroundColor: colors.debugOne,
   },
 
   userInfo: {
     flexDirection: 'row',
     alignItems: 'center',
+    backgroundColor: colors.debugThree,
   },
 
   textContainer: {
@@ -137,6 +141,6 @@ safeArea: {
 
   matchesTotal: {
     ...typography.headerSubtitle,
-    color: colors.textWhite,
+    color: colors.textGray,
   },
 });

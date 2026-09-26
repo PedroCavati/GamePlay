@@ -4,7 +4,7 @@ import { Image, StyleSheet } from "react-native";
  * @param {Object} props
  * @param {import("react-native").ImageSourcePropType} props.source
  */
-export default function ProfileImage({ source, customStyle }) {
+export default function Avatar({ source, customStyle }) {
     return (
         <Image
             style={[styles.image, customStyle]}

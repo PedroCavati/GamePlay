@@ -4,10 +4,18 @@ export const colors = Object.freeze({
     backgroundGradient: ['#0E1647', '#0A1033'],
 
     textWhite: '#DDE3F0',
+    textGray: '#ABB1CC',
+    textRed: '#E51C44',
 
     buttonRed: '#E51C44',
     dividerRed: '#991F36',
+    iconWhite: '#FFFFFF',
+    iconRed: '#E51C44',
 
     categoryButtonBlue: '#1D2766',
     categoryButtonBorderGradient: ['#243189', '#1B2565'],
+
+    debugOne: '#50C878',
+    debubTwo: '#228B22',
+    debugThree: '#8A9A86',
 });

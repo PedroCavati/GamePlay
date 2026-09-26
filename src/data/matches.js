@@ -1,0 +1,42 @@
+export const MATCHES = Object.freeze([
+  {
+    id: 'lol',
+    title: 'League of Legends',
+    source: require('../../assets/images/lol.png'),
+    date: '18/06 às 21:00',
+    category: 'Ranqueada',
+    role: 'Anfitrião',
+  },
+  {
+    id: 'rdr',
+    title: 'Red Dead Redemption 2',
+    source: require('../../assets/images/rdr.png'),
+    date: '23/06 às 19:00',
+    category: 'Diversão',
+    role: 'Visitante',
+  },
+  {
+    id: 'csgo',
+    title: 'CS: GO',
+    source: require('../../assets/images/csgo.png'),
+    date: '20/06 às 09:00h',
+    category: '1x1',
+    role: '',
+  },
+  {
+    id: 'apex',
+    title: 'Apex',
+    source: require('../../assets/images/apex.png'),
+    date: '20/06 às 14:20h',
+    category: 'Ranqueda',
+    role: 'Anfitrião',
+  },
+  {
+    id: 'valorant',
+    title: 'Valorant',
+    source: require('../../assets/images/valorant.png'),
+    date: '18/06 às 21:00h',
+    category: 'Diversão',
+    role: 'Anfitrião',
+  },
+]);

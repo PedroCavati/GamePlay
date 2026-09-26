@@ -42,7 +42,7 @@ export default function Login() {
         <View style={styles.bottomContainer}>
           <ActionButton
             onPress={handlePress}
-            icon={<FontAwesome6 name="discord" size={24} color="#FFF" />}
+            icon={<FontAwesome6 name="discord" size={24} color={colors.iconWhite} />}
             title="Entrar com discord"
           />
         </View>
